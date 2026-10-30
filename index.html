@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Platform World | BlockForge Studios</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f7ff;
+  color: #17324d;
+  line-height: 1.6;
+}
+
+header {
+  background: #176fc1;
+  color: white;
+  padding: 18px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo { font-size: 21px; font-weight: bold; }
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+select, button {
+  padding: 11px 15px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.hero {
+  padding: 65px 20px;
+  text-align: center;
+  background: linear-gradient(135deg,#c5eaff,#dff5d6);
+}
+
+.hero h1 {
+  font-size: clamp(35px,6vw,55px);
+  color: #176fc1;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 12px auto;
+}
+
+section {
+  max-width: 1050px;
+  margin: 30px auto;
+  padding: 30px 22px;
+  background: white;
+  border-radius: 16px;
+}
+
+h2 { color: #176fc1; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #edf7ff;
+  border-radius: 13px;
+  padding: 18px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card h3 { color: #176fc1; }
+
+button {
+  background: #176fc1;
+  color: white;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: bold;
+}
+
+button:hover { background: #105493; }
+
+.secondary { background: #4c9b57; }
+.secondary:hover { background: #34763e; }
+
+.account {
+  text-align: center;
+  padding: 25px;
+  background: #edf7ff;
+  border-radius: 14px;
+}
+
+.notice {
+  padding: 15px;
+  background: #fff5d9;
+  border-radius: 10px;
+  color: #765817;
+}
+
+.faq {
+  background: #edf7ff;
+  padding: 18px;
+  margin: 15px 0;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.faq h3 {
+  color: #176fc1;
+  margin-top: 0;
+}
+
+footer {
+  background: #163c5c;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 35px;
+}
+
+@media(max-width:650px) {
+  header { flex-direction: column; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BLOCKFORGE STUDIOS</div>
+
+  <nav>
+    <a href="#inicio" data-t="home">Inicio</a>
+    <a href="#juego" data-t="game">Videojuego</a>
+    <a href="#cuenta" data-t="account">Mi cuenta</a>
+    <a href="#estudio" data-t="studio">Estudio</a>
+    <a href="#soporte" data-t="support">Soporte</a>
+  </nav>
+
+  <select id="idioma" aria-label="Language">
+    <option value="es">🇨🇴 Español</option>
+    <option value="en">🇺🇸 English</option>
+    <option value="pt">🇧🇷 Português</option>
+    <option value="zh">🇨🇳 中文</option>
+  </select>
+</header>
+
+<div class="hero" id="inicio">
+  <h1 data-t="heroTitle">MINI PLATFORM WORLD</h1>
+  <h2 data-t="heroSubtitle">¡Tu mundo, tus ideas!</h2>
+  <p data-t="heroText">
+    Explora, construye y crea tus propias aventuras.
+  </p>
+  <button onclick="document.getElementById('juego').scrollIntoView()" data-t="discover">
+    Descubrir el juego
+  </button>
+</div>
+
+<section id="juego">
+  <h2 data-t="gameTitle">Nuestro videojuego</h2>
+  <p data-t="gameText">
+    Mini Platform World es un proyecto sandbox en planificación.
+  </p>
+
+  <div class="cards">
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=700" alt="Imagen ilustrativa de videojuegos">
+      <h3 data-t="exploration">Exploración</h3>
+      <p data-t="explorationText">Descubre nuevos mundos y lugares.</p>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=700" alt="Imagen ilustrativa de un juego">
+      <h3 data-t="creativity">Creatividad</h3>
+      <p data-t="creativityText">Imagina y crea tus propias aventuras.</p>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=700" alt="Imagen ilustrativa de un mundo digital">
+      <h3 data-t="building">Construcción</h3>
+      <p data-t="buildingText">Construye espacios utilizando bloques.</p>
+    </article>
+  </div>
+</section>
+
+<section id="cuenta">
+  <h2 data-t="accountTitle">Cuenta de jugador</h2>
+
+  <div class="account">
+    <h3 data-t="welcome">¡Bienvenido a Mini Platform World!</h3>
+    <p data-t="accountText">
+      Las opciones de cuenta son demostrativas por ahora.
+    </p>
+
+    <button onclick="showAccountMessage('login')" data-t="login">
+      Iniciar sesión
+    </button>
+
+    <button class="secondary" onclick="showAccountMessage('register')" data-t="register">
+      Crear cuenta
+    </button>
+
+    <p class="notice" data-t="accountNotice">
+      Estas funciones todavía no están disponibles.
+    </p>
+  </div>
+</section>
+
+<section id="estudio">
+  <h2 data-t="studioTitle">Sobre BlockForge Studios</h2>
+  <p data-t="studioText">
+    BlockForge Studios es el nombre previsto para el estudio creador de Mini Platform World.
+  </p>
+  <p data-t="projectStatus">
+    Proyecto independiente en planificación. Sin fecha oficial de lanzamiento.
+  </p>
+</section>
+
+<section id="desarrollo">
+  <h2 data-t="developmentTitle">Plan del proyecto</h2>
+
+  <div class="cards">
+    <article class="card">
+      <h3 data-t="firstVersion">Primera versión prevista</h3>
+      <ul>
+        <li data-t="single">Modo para un jugador.</li>
+        <li data-t="settings">Configuración del juego.</li>
+        <li data-t="skins">Dos aspectos gratuitos.</li>
+        <li data-t="tutorial">Tutorial que se podrá omitir.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3 data-t="future">Funciones futuras</h3>
+      <ul>
+        <li data-t="multiplayer">Multijugador.</li>
+        <li data-t="maps">Guardar y compartir mapas.</li>
+        <li data-t="events">Eventos y novedades.</li>
+        <li data-t="moreLanguages">Más idiomas y contenidos.</li>
+      </ul>
+    </article>
+  </div>
+
+  <p class="notice" data-t="important">
+    Importante: el videojuego todavía está en planificación. No hay fecha oficial de lanzamiento.
+  </p>
+</section>
+
+<!-- CENTRO DE SOPORTE -->
+<section id="soporte">
+  <h2 data-t="supportTitle">Centro de soporte</h2>
+
+  <p data-t="supportText">
+    Encuentra respuestas a preguntas sobre Mini Platform World.
+  </p>
+
+  <article class="faq">
+    <h3 data-t="faq1">¿Mini Platform World ya está disponible?</h3>
+    <p data-t="answer1">No. El videojuego todavía está en planificación.</p>
+  </article>
+
+  <article class="faq">
+    <h3 data-t="faq2">¿Cuándo será el lanzamiento?</h3>
+    <p data-t="answer2">Todavía no hay una fecha oficial de lanzamiento.</p>
+  </article>
+
+  <article class="faq">
+    <h3 data-t="faq3">¿Tendrá multijugador?</h3>
+    <p data-t="answer3">Está previsto para futuras actualizaciones, no para la primera versión.</p>
+  </article>
+
+  <article class="faq">
+    <h3 data-t="faq4">¿Qué idiomas tendrá?</h3>
+    <p data-t="answer4">El videojuego está planeado inicialmente en español.</p>
+  </article>
+
+  <article class="faq">
+    <h3 data-t="faq5">¿Cómo puedo conocer las novedades?</h3>
+    <p data-t="answer5">Puedes consultar esta página para conocer futuros avances del proyecto.</p>
+  </article>
+</section>
+
+<footer data-t="footer">
+  BLOCKFORGE STUDIOS © 2026 · MINI PLATFORM WORLD
+</footer>
+
+<script>
+const translations = {
+es: {
+home:"Inicio", game:"Videojuego", account:"Mi cuenta", studio:"Estudio",
+support:"Soporte",
+heroTitle:"MINI PLATFORM WORLD",
+heroSubtitle:"¡Tu mundo, tus ideas!",
+heroText:"Explora, construye y crea tus propias aventuras.",
+discover:"Descubrir el juego",
+gameTitle:"Nuestro videojuego",
+gameText:"Mini Platform World es un proyecto sandbox en planificación.",
+exploration:"Exploración",
+explorationText:"Descubre nuevos mundos y lugares.",
+creativity:"Creatividad",
+creativityText:"Imagina y crea tus propias aventuras.",
+building:"Construcción",
+buildingText:"Construye espacios utilizando bloques.",
+accountTitle:"Cuenta de jugador",
+welcome:"¡Bienvenido a Mini Platform World!",
+accountText:"Las opciones de cuenta son demostrativas por ahora.",
+login:"Iniciar sesión",
+register:"Crear cuenta",
+accountNotice:"Estas funciones todavía no están disponibles.",
+studioTitle:"Sobre BlockForge Studios",
+studioText:"BlockForge Studios es el nombre previsto para el estudio creador de Mini Platform World.",
+projectStatus:"Proyecto independiente en planificación. Sin fecha oficial de lanzamiento.",
+developmentTitle:"Plan del proyecto",
+firstVersion:"Primera versión prevista",
+single:"Modo para un jugador.",
+settings:"Configuración del juego.",
+skins:"Dos aspectos gratuitos.",
+tutorial:"Tutorial que se podrá omitir.",
+future:"Funciones futuras",
+multiplayer:"Multijugador.",
+maps:"Guardar y compartir mapas.",
+events:"Eventos y novedades.",
+moreLanguages:"Más idiomas y contenidos.",
+important:"Importante: el videojuego todavía está en planificación. No hay fecha oficial de lanzamiento.",
+supportTitle:"Centro de soporte",
+supportText:"Encuentra respuestas a preguntas sobre Mini Platform World.",
+faq1:"¿Mini Platform World ya está disponible?",
+answer1:"No. El videojuego todavía está en planificación.",
+faq2:"¿Cuándo será el lanzamiento?",
+answer2:"Todavía no hay una fecha oficial de lanzamiento.",
+faq3:"¿Tendrá multijugador?",
+answer3:"Está previsto para futuras actualizaciones, no para la primera versión.",
+faq4:"¿Qué idiomas tendrá?",
+answer4:"El videojuego está planeado inicialmente en español.",
+faq5:"¿Cómo puedo conocer las novedades?",
+answer5:"Puedes consultar esta página para conocer futuros avances del proyecto.",
+footer:"BLOCKFORGE STUDIOS © 2026 · MINI PLATFORM WORLD",
+loginMessage:"El inicio de sesión estará disponible en una versión futura.",
+registerMessage:"La creación de cuentas estará disponible en una versión futura."
+},
+
+en: {
+home:"Home", game:"Video game", account:"My account", studio:"Studio",
+support:"Support",
+heroTitle:"MINI PLATFORM WORLD",
+heroSubtitle:"Your world, your ideas!",
+heroText:"Explore, build and create your own adventures.",
+discover:"Discover the game",
+gameTitle:"Our video game",
+gameText:"Mini Platform World is a sandbox project in planning.",
+exploration:"Exploration",
+explorationText:"Discover new worlds and places.",
+creativity:"Creativity",
+creativityText:"Imagine and create your own adventures.",
+building:"Building",
+buildingText:"Build spaces using blocks.",
+accountTitle:"Player account",
+welcome:"Welcome to Mini Platform World!",
+accountText:"Account options are demonstrations for now.",
+login:"Log in",
+register:"Create account",
+accountNotice:"These features are not available yet.",
+studioTitle:"About BlockForge Studios",
+studioText:"BlockForge Studios is the planned name of the studio behind Mini Platform World.",
+projectStatus:"Independent project in planning. No official release date.",
+developmentTitle:"Project roadmap",
+firstVersion:"Planned first version",
+single:"Single-player mode.",
+settings:"Game settings.",
+skins:"Two free skins.",
+tutorial:"Skippable tutorial.",
+future:"Future features",
+multiplayer:"Multiplayer.",
+maps:"Save and share maps.",
+events:"Events and updates.",
+moreLanguages:"More languages and content.",
+important:"Important: the video game is still in planning. There is no official release date.",
+supportTitle:"Support Center",
+supportText:"Find answers to questions about Mini Platform World.",
+faq1:"Is Mini Platform World available yet?",
+answer1:"No. The game is still in planning.",
+faq2:"When will it be released?",
+answer2:"There is no official release date yet.",
+faq3:"Will it have multiplayer?",
+answer3:"It is planned for future updates, not the first version.",
+faq4:"What languages will it support?",
+answer4:"The game is initially planned to be in Spanish.",
+faq5:"How can I learn about updates?",
+answer5:"You can visit this page to learn about future project updates.",
+footer:"BLOCKFORGE STUDIOS © 2026 · MINI PLATFORM WORLD",
+loginMessage:"Login will be available in a future version.",
+registerMessage:"Account creation will be available in a future version."
+},
+
+pt: {
+home:"Início", game:"Jogo", account:"Minha conta", studio:"Estúdio",
+support:"Suporte",
+heroTitle:"MINI PLATFORM WORLD",
+heroSubtitle:"Seu mundo, suas ideias!",
+heroText:"Explore, construa e crie suas próprias aventuras.",
+discover:"Conhecer o jogo",
+gameTitle:"Nosso videogame",
+gameText:"Mini Platform World é um projeto sandbox em planejamento.",
+exploration:"Exploração",
+explorationText:"Descubra novos mundos e lugares.",
+creativity:"Criatividade",
+creativityText:"Imagine e crie suas próprias aventuras.",
+building:"Construção",
+buildingText:"Construa espaços utilizando blocos.",
+accountTitle:"Conta do jogador",
+welcome:"Bem-vindo ao Mini Platform World!",
+accountText:"As opções de conta são demonstrativas por enquanto.",
+login:"Entrar",
+register:"Criar conta",
+accountNotice:"Esses recursos ainda não estão disponíveis.",
+studioTitle:"Sobre a BlockForge Studios",
+studioText:"BlockForge Studios é o nome planejado para o estúdio criador de Mini Platform World.",
+projectStatus:"Projeto independente em planejamento. Sem data oficial de lançamento.",
+developmentTitle:"Plano do projeto",
+firstVersion:"Primeira versão planejada",
+single:"Modo para um jogador.",
+settings:"Configurações do jogo.",
+skins:"Duas skins gratuitas.",
+tutorial:"Tutorial que pode ser ignorado.",
+future:"Recursos futuros",
+multiplayer:"Multijogador.",
+maps:"Salvar e compartilhar mapas.",
+events:"Eventos e novidades.",
+moreLanguages:"Mais idiomas e conteúdos.",
+important:"Importante: o videogame ainda está em planejamento. Não há data oficial de lançamento.",
+supportTitle:"Central de suporte",
+supportText:"Encontre respostas para perguntas sobre Mini Platform World.",
+faq1:"Mini Platform World já está disponível?",
+answer1:"Não. O jogo ainda está em planejamento.",
+faq2:"Quando será lançado?",
+answer2:"Ainda não há uma data oficial de lançamento.",
+faq3:"Terá multijogador?",
+answer3:"Está planejado para futuras atualizações, não para a primeira versão.",
+faq4:"Quais idiomas terá?",
+answer4:"O jogo está planejado inicialmente em espanhol.",
+faq5:"Como posso conhecer as novidades?",
+answer5:"Você pode consultar esta página para conhecer os futuros avanços do projeto.",
+footer:"BLOCKFORGE STUDIOS © 2026 · MINI PLATFORM WORLD",
+loginMessage:"O login estará disponível em uma versão futura.",
+registerMessage:"A criação de contas estará disponível em uma versão futura."
+},
+
+zh: {
+home:"首页", game:"游戏", account:"我的账户", studio:"工作室",
+support:"支持",
+heroTitle:"MINI PLATFORM WORLD",
+heroSubtitle:"你的世界，你的创意！",
+heroText:"探索、建造并创造属于你自己的冒险。",
+discover:"了解游戏",
+gameTitle:"我们的游戏",
+gameText:"Mini Platform World 是一个正在规划中的沙盒游戏项目。",
+exploration:"探索",
+explorationText:"发现新的世界和地方。",
+creativity:"创造力",
+creativityText:"发挥想象，创造自己的冒险。",
+building:"建造",
+buildingText:"使用方块建造自己的空间。",
+accountTitle:"玩家账户",
+welcome:"欢迎来到 Mini Platform World！",
+accountText:"账户选项目前仅供演示。",
+login:"登录",
+register:"创建账户",
+accountNotice:"这些功能目前尚不可用。",
+studioTitle:"关于 BlockForge Studios",
+studioText:"BlockForge Studios 是 Mini Platform World 开发工作室的计划名称。",
+projectStatus:"正在规划中的独立项目。尚无正式发布日期。",
+developmentTitle:"项目计划",
+firstVersion:"计划中的首个版本",
+single:"单人模式。",
+settings:"游戏设置。",
+skins:"两个免费皮肤。",
+tutorial:"可以跳过的新手教程。",
+future:"未来功能",
+multiplayer:"多人游戏。",
+maps:"保存和分享地图。",
+events:"活动和更新。",
+moreLanguages:"更多语言和内容。",
+important:"重要提示：游戏仍在规划中，尚未公布正式发布日期。",
+supportTitle:"支持中心",
+supportText:"查找有关 Mini Platform World 的常见问题答案。",
+faq1:"Mini Platform World 已经推出了吗？",
+answer1:"没有。游戏仍在规划中。",
+faq2:"什么时候发布？",
+answer2:"目前还没有正式发布日期。",
+faq3:"会有多人游戏吗？",
+answer3:"计划在未来更新中推出，不属于首个版本。",
+faq4:"游戏将支持什么语言？",
+answer4:"游戏最初计划使用西班牙语。",
+faq5:"如何了解最新消息？",
+answer5:"你可以访问本页面了解项目未来的进展。",
+footer:"BLOCKFORGE STUDIOS © 2026 · MINI PLATFORM WORLD",
+loginMessage:"登录功能将在未来版本中推出。",
+registerMessage:"账户创建功能将在未来版本中推出。"
+}
+};
+
+function changeLanguage() {
+  const language = document.getElementById("idioma").value;
+  document.documentElement.lang = language;
+
+  document.querySelectorAll("[data-t]").forEach(element => {
+    const key = element.getAttribute("data-t");
+    element.textContent = translations[language][key];
+  });
+}
+
+function showAccountMessage(type) {
+  const language = document.getElementById("idioma").value;
+  const key = type === "login" ? "loginMessage" : "registerMessage";
+  alert(translations[language][key]);
+}
+
+document.getElementById("idioma").addEventListener("change", changeLanguage);
+</script>
+
+</body>
+</html>
